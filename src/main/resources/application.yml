@@ -1,0 +1,26 @@
+server:
+  port: 8002
+
+spring:
+  webflux:
+    base-path: /uaa
+  r2dbc:
+    username:
+    password:
+    url:
+  security:
+    oauth2:
+      client:
+        registration:
+          auth-service:
+            client-id: auth-service
+            client-secret: auth-service-client-secret
+            authorization-grant-type: client_credentials
+            client-authentication-method: post
+        provider:
+          auth-service:
+            token-uri: http://localhost:8002/uaa/oauth/token
+
+logging:
+  file:
+    name: /usr/app/logs/uaa.log
