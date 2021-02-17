@@ -1,4 +1,4 @@
-package com.example.uaa.oauth.endpoint;
+package com.example.uaa.authorization.endpoint;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

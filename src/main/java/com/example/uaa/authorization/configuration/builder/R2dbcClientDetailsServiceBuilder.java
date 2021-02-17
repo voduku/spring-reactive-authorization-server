@@ -1,7 +1,7 @@
-package com.example.uaa.oauth.configuration.builder;
+package com.example.uaa.authorization.configuration.builder;
 
-import com.example.uaa.oauth.client.R2dbcClientDetailsService;
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.client.R2dbcClientDetailsService;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
 import io.r2dbc.spi.ConnectionFactory;
 import java.util.HashSet;
 import java.util.Set;

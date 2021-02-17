@@ -1,4 +1,4 @@
-package com.example.uaa.oauth.client;
+package com.example.uaa.authorization.client;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

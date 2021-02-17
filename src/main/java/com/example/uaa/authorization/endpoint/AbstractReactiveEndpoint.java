@@ -1,9 +1,9 @@
-package com.example.uaa.oauth.endpoint;
+package com.example.uaa.authorization.endpoint;
 
-import com.example.uaa.oauth.ReactiveOAuth2RequestFactory;
-import com.example.uaa.oauth.ReactiveTokenGranter;
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
-import com.example.uaa.oauth.impl.DefaultReactiveOAuth2RequestFactory;
+import com.example.uaa.authorization.ReactiveOAuth2RequestFactory;
+import com.example.uaa.authorization.ReactiveTokenGranter;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.impl.DefaultReactiveOAuth2RequestFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;

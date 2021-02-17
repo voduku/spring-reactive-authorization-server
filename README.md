@@ -2,7 +2,8 @@
 
 ## GOAL
 
-Support projects with older version of spring looking to convert to reactive.
+Support projects with older version of spring looking to convert to reactive and/or waiting for `Spring Authorization Server` project to be released with
+reactive implementation.
 
 ## NOTES
 

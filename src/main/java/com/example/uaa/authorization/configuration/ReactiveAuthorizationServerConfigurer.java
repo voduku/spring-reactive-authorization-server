@@ -1,7 +1,7 @@
-package com.example.uaa.oauth.configuration;
+package com.example.uaa.authorization.configuration;
 
-import com.example.uaa.oauth.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
-import com.example.uaa.oauth.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
+import com.example.uaa.authorization.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
+import com.example.uaa.authorization.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 

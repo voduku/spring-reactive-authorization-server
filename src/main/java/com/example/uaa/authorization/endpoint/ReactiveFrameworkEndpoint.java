@@ -1,4 +1,4 @@
-package com.example.uaa.oauth.endpoint;
+package com.example.uaa.authorization.endpoint;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,9 +1,9 @@
-package com.example.uaa.oauth.endpoint;
+package com.example.uaa.authorization.endpoint;
 
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-import com.example.uaa.oauth.ReactiveTokenGranter;
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.ReactiveTokenGranter;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
 import com.google.common.collect.ImmutableMap;
 import com.nimbusds.oauth2.sdk.GrantType;
 import java.security.Principal;
@@ -221,7 +221,6 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
     return "authorization_code".equals(parameters.get("grant_type")) && parameters.get("code") != null;
   }
 
-  //grant_type=client_credentials&client_id=auth-service&client_secret=auth-service-client-secret
   @Data
   private static class RequestContainer {
 
@@ -232,22 +231,6 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
     private TokenRequest tokenRequest;
     private boolean isClientCredentials = false;
 
-    @SuppressWarnings("unchecked")
-    public RequestContainer(String body, Map<String, Object> attributes) {
-      if (!StringUtils.hasLength(body)) {
-        principal = (Authentication) attributes.get("principal");
-        parameters = (Map<String, String>) attributes.get("parameters");
-      } else {
-        String[] params = body.split("&");
-        clientId = extractParamValue(params[1]);
-        isClientCredentials = true;
-        parameters = ImmutableMap.of(
-            "grant_type", extractParamValue(params[0]),
-            "client_id", clientId,
-            "client_secret", extractParamValue(params[1])
-        );
-      }
-    }
 
     public RequestContainer(Principal principal, Map<String, String> parameters) {
       this.principal = principal;
@@ -266,10 +249,6 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
     public RequestContainer setTokenRequest(TokenRequest tokenRequest) {
       this.tokenRequest = tokenRequest;
       return this;
-    }
-
-    private String extractParamValue(String param) {
-      return param.split("=")[1];
     }
   }
 }

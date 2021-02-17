@@ -1,4 +1,4 @@
-package com.example.uaa.oauth.client;
+package com.example.uaa.authorization.client;
 
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientRegistrationException;

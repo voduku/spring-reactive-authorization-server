@@ -1,10 +1,10 @@
-package com.example.uaa.oauth.impl;
+package com.example.uaa.authorization.impl;
 
 import static io.r2dbc.postgresql.util.PredicateUtils.not;
 
-import com.example.uaa.oauth.ReactiveOAuth2RequestFactory;
-import com.example.uaa.oauth.ReactiveSecurityContextAccessor;
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.ReactiveOAuth2RequestFactory;
+import com.example.uaa.authorization.ReactiveSecurityContextAccessor;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;

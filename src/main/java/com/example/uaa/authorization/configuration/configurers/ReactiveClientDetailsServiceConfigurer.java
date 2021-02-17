@@ -1,8 +1,8 @@
-package com.example.uaa.oauth.configuration.configurers;
+package com.example.uaa.authorization.configuration.configurers;
 
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
-import com.example.uaa.oauth.configuration.builder.R2dbcClientDetailsServiceBuilder;
-import com.example.uaa.oauth.configuration.builder.ReactiveClientDetailsServiceBuilder;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.configuration.builder.R2dbcClientDetailsServiceBuilder;
+import com.example.uaa.authorization.configuration.builder.ReactiveClientDetailsServiceBuilder;
 import io.r2dbc.spi.ConnectionFactory;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 

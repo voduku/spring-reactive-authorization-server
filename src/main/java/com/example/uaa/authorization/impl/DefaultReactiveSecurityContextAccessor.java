@@ -1,6 +1,6 @@
-package com.example.uaa.oauth.impl;
+package com.example.uaa.authorization.impl;
 
-import com.example.uaa.oauth.ReactiveSecurityContextAccessor;
+import com.example.uaa.authorization.ReactiveSecurityContextAccessor;
 import java.util.HashSet;
 import java.util.Objects;
 import org.springframework.security.core.Authentication;

@@ -1,14 +1,13 @@
-package com.example.uaa.oauth.configuration;
+package com.example.uaa.authorization.configuration;
 
-import com.example.uaa.oauth.ReactiveOAuth2RequestFactory;
-import com.example.uaa.oauth.ReactiveTokenGranter;
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
-import com.example.uaa.oauth.configuration.ReactiveAuthorizationServerEndpointsConfiguration.TokenKeyEndpointRegistrar;
-import com.example.uaa.oauth.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
-import com.example.uaa.oauth.endpoint.FrameworkEndpointReactiveHandlerMapping;
-import com.example.uaa.oauth.endpoint.ReactiveTokenEndpoint;
-import com.example.uaa.oauth.token.ReactiveAuthorizationServerTokenServices;
-import com.example.uaa.oauth.token.ReactiveConsumerTokenServices;
+import com.example.uaa.authorization.ReactiveOAuth2RequestFactory;
+import com.example.uaa.authorization.ReactiveTokenGranter;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.configuration.ReactiveAuthorizationServerEndpointsConfiguration.TokenKeyEndpointRegistrar;
+import com.example.uaa.authorization.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
+import com.example.uaa.authorization.endpoint.FrameworkEndpointReactiveHandlerMapping;
+import com.example.uaa.authorization.token.ReactiveAuthorizationServerTokenServices;
+import com.example.uaa.authorization.token.ReactiveConsumerTokenServices;
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;

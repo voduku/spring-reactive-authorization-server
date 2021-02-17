@@ -1,6 +1,6 @@
-package com.example.uaa.oauth.configuration.builder;
+package com.example.uaa.authorization.configuration.builder;
 
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,9 +14,7 @@ import java.util.Set;
 import org.springframework.security.config.annotation.SecurityBuilder;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.provider.ClientDetails;
-import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 
 /**

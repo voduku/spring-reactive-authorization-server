@@ -1,8 +1,8 @@
-package com.example.uaa.oauth.configuration;
+package com.example.uaa.authorization.configuration;
 
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
-import com.example.uaa.oauth.configuration.builder.ReactiveClientDetailsServiceBuilder;
-import com.example.uaa.oauth.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.configuration.builder.ReactiveClientDetailsServiceBuilder;
+import com.example.uaa.authorization.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
