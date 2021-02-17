@@ -2,16 +2,9 @@ package com.example.uaa.router;
 
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-import com.example.uaa.oauth.endpoint.ReactiveTokenEndpoint;
+import com.example.uaa.authorization.endpoint.ReactiveTokenEndpoint;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.lang.NonNull;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.ServerRequest;
-import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Mono;
 
 /**
  * @author VuDo

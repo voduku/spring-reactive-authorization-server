@@ -1,6 +1,6 @@
 package com.example.uaa;
 
-import com.example.uaa.oauth.EnableReactiveAuthorizationServer;
+import com.example.uaa.authorization.EnableReactiveAuthorizationServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

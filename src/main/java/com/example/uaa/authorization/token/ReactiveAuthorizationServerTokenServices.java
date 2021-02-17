@@ -1,4 +1,4 @@
-package com.example.uaa.oauth.token;
+package com.example.uaa.authorization.token;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

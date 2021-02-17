@@ -7,7 +7,7 @@ spring:
   r2dbc:
     username:
     password:
-    url:
+    url: postgresql://localhost:5432/uaa
   security:
     oauth2:
       client:
@@ -20,6 +20,9 @@ spring:
         provider:
           auth-service:
             token-uri: http://localhost:8002/uaa/oauth/token
+
+setting:
+  enable-single-session: false
 
 logging:
   file:

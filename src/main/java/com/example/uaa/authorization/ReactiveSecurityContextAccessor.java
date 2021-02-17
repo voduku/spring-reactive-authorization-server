@@ -1,6 +1,5 @@
-package com.example.uaa.oauth;
+package com.example.uaa.authorization;
 
-import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

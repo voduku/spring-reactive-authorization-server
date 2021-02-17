@@ -1,6 +1,6 @@
-package com.example.uaa.oauth;
+package com.example.uaa.authorization;
 
-import com.example.uaa.oauth.configuration.ReactiveAuthorizationServerEndpointsConfiguration;
+import com.example.uaa.authorization.configuration.ReactiveAuthorizationServerEndpointsConfiguration;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

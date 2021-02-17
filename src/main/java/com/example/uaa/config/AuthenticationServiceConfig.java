@@ -1,10 +1,10 @@
 package com.example.uaa.config;
 
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
-import com.example.uaa.oauth.configuration.ReactiveClientDetailsServiceConfiguration;
-import com.example.uaa.oauth.token.R2dbcTokenStore;
-import com.example.uaa.oauth.token.ReactiveTokenServices;
-import com.example.uaa.oauth.token.ReactiveTokenStore;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.configuration.ReactiveClientDetailsServiceConfiguration;
+import com.example.uaa.authorization.token.R2dbcTokenStore;
+import com.example.uaa.authorization.token.ReactiveTokenServices;
+import com.example.uaa.authorization.token.ReactiveTokenStore;
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration;
 import io.r2dbc.postgresql.PostgresqlConnectionFactory;
 import io.r2dbc.spi.ConnectionFactory;

@@ -1,20 +1,13 @@
 package com.example.uaa.config;
 
-import com.example.uaa.oauth.ReactiveTokenGranter;
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
-import com.example.uaa.oauth.configuration.ReactiveAuthorizationServerConfigurer;
-import com.example.uaa.oauth.configuration.ReactiveClientDetailsServiceConfiguration;
-import com.example.uaa.oauth.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
-import com.example.uaa.oauth.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
-import com.example.uaa.oauth.token.R2dbcTokenStore;
-import com.example.uaa.oauth.token.ReactiveTokenServices;
-import com.example.uaa.oauth.token.ReactiveTokenStore;
-import io.r2dbc.postgresql.PostgresqlConnectionConfiguration;
-import io.r2dbc.postgresql.PostgresqlConnectionFactory;
-import io.r2dbc.spi.ConnectionFactory;
+import com.example.uaa.authorization.ReactiveTokenGranter;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.configuration.ReactiveAuthorizationServerConfigurer;
+import com.example.uaa.authorization.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
+import com.example.uaa.authorization.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
+import com.example.uaa.authorization.token.ReactiveTokenServices;
+import com.example.uaa.authorization.token.ReactiveTokenStore;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 

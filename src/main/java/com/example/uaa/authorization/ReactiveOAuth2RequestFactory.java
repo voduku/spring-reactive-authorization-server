@@ -1,4 +1,4 @@
-package com.example.uaa.oauth;
+package com.example.uaa.authorization;
 
 import java.util.Map;
 import org.springframework.security.oauth2.provider.AuthorizationRequest;

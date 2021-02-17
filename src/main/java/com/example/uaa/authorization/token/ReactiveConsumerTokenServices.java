@@ -1,4 +1,4 @@
-package com.example.uaa.oauth.token;
+package com.example.uaa.authorization.token;
 
 import reactor.core.publisher.Mono;
 

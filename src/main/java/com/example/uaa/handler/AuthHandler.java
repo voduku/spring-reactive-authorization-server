@@ -2,19 +2,13 @@ package com.example.uaa.handler;
 
 import com.example.uaa.model.oauth.Auth;
 import com.example.uaa.model.oauth.AuthRequest;
-import com.example.uaa.oauth.endpoint.ReactiveTokenEndpoint;
-import com.example.uaa.oauth.token.ReactiveTokenStore;
+import com.example.uaa.authorization.endpoint.ReactiveTokenEndpoint;
+import com.example.uaa.authorization.token.ReactiveTokenStore;
 import com.google.common.collect.ImmutableMap;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
-import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**

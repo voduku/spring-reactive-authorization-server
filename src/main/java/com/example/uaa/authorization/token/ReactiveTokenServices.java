@@ -1,6 +1,6 @@
-package com.example.uaa.oauth.token;
+package com.example.uaa.authorization.token;
 
-import com.example.uaa.oauth.client.ReactiveClientDetailsService;
+import com.example.uaa.authorization.client.ReactiveClientDetailsService;
 import java.util.Date;
 import java.util.UUID;
 import lombok.Getter;
