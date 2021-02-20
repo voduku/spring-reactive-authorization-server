@@ -1,0 +1,32 @@
+server:
+  port: 8002
+
+spring:
+  main:
+    web-application-type: reactive
+  webflux:
+    base-path: /uaa
+  r2dbc:
+    username: inspira
+    password: inspira@123
+    url: postgresql://dev.database.inspirahub.id:5432/uaa
+  security:
+    oauth2:
+      client:
+        registration:
+          auth-service:
+            client-id: auth-service
+            client-secret: auth-service-client-secret
+            authorization-grant-type: client_credentials
+            client-authentication-method: post
+            provider: auth-service
+        provider:
+          auth-service:
+            token-uri: http://localhost:8002/uaa/oauth/token
+
+setting:
+  enable-single-session: false
+
+logging:
+  file:
+    name: /usr/app/logs/uaa.log
