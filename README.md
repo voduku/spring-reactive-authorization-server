@@ -23,8 +23,8 @@ reactive implementation.
 
 ## WHAT TO KNOW
 - Since I am creating this sample what the aim to support micro-services, my UserDetails is fetched from another service. Please
-  see `./src/main/java/com/example/uaa/client`
-- The implementations for reactive Authorization Server is in `./src/main/java/com/example/uaa/authorization`
+  see check `sample`
+- The implementations for reactive Authorization Server is in `authorization-server`
 - All you needs to do in order to enable it is to add `@EnableReactiveAuthorizationServer`
 - For the time being, I only support opaque token and info about that token will be saved in a database. You are welcome to add any other implementations that
   you need. Make sure you register your implementation!

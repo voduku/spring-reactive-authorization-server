@@ -5,74 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14578b7a-d9ee-4a69-abc1-2ff900dd194d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/authorization-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/UaaApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/EnableReactiveAuthorizationServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/ReactiveOAuth2RequestFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/ReactiveSecurityContextAccessor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/ReactiveTokenGranter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/client/R2dbcClientDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/client/ReactiveClientDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/client/ReactiveClientRegistrationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/configuration/ReactiveAuthorizationServerConfigurer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/configuration/ReactiveClientDetailsServiceConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/configuration/builder/R2dbcClientDetailsServiceBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/configuration/configurers/ReactiveAuthorizationServerEndpointsConfigurer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/configuration/configurers/ReactiveClientDetailsServiceConfigurer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/endpoint/AbstractReactiveEndpoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/endpoint/FrameworkEndpointReactiveHandlerMapping.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/endpoint/ReactiveFrameworkEndpoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/endpoint/ReactiveTokenEndpoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/endpoint/WebfluxResponseExceptionTranslator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/impl/DefaultReactiveOAuth2RequestFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/impl/DefaultReactiveSecurityContextAccessor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/token/R2dbcTokenStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/token/ReactiveAuthorizationServerTokenServices.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/token/ReactiveConsumerTokenServices.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/token/ReactiveResourceServerTokenServices.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/token/ReactiveTokenServices.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/authorization/token/ReactiveTokenStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/client/ProfileClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/client/SocketClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/common/ResourceBundle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/config/AuthenticationManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/config/AuthenticationServerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/config/AuthenticationServiceConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/config/ReactiveTokenGranterImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/config/WebClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/handler/AuthHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/dto/ProfileDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/dto/RoleDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/enumerator/AuthenticationType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/enumerator/ForceLogoutEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/enumerator/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/oauth/Auth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/oauth/AuthRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/oauth/UserDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/request/AuthUserRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/request/ProfileRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/request/SocketActionRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/response/AuthUserResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/model/response/RestResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/router/AuthRouter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/router/BaseRouter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/uaa/router/TokenRouter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,8 +72,15 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean build" />
-      <command value="mvn clean package" />
       <command value="mvn clean install" />
+      <command value="mvn clean package" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
     </option>
   </component>
   <component name="RunManager" selected="Application.UaaApplication">
@@ -173,7 +114,7 @@
       <updated>1613490875408</updated>
       <workItem from="1613490876706" duration="6118000" />
       <workItem from="1613851798052" duration="3418000" />
-      <workItem from="1613863893917" duration="85000" />
+      <workItem from="1613863893917" duration="389000" />
     </task>
     <servers />
   </component>
