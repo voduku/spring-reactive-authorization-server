@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14578b7a-d9ee-4a69-abc1-2ff900dd194d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/authorization-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerSecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/configurers/ReactiveAuthorizationServerSecurityConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/EnableReactiveAuthorizationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/EnableReactiveAuthorizationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/authorization-server-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationServerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/sample-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/sample-1.0-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +65,9 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java" />
@@ -73,8 +85,8 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean build" />
-      <command value="mvn clean install" />
       <command value="mvn clean package" />
+      <command value="mvn clean install" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -115,7 +127,9 @@
       <updated>1613490875408</updated>
       <workItem from="1613490876706" duration="6118000" />
       <workItem from="1613851798052" duration="3418000" />
-      <workItem from="1613863893917" duration="758000" />
+      <workItem from="1613863893917" duration="3324000" />
+      <workItem from="1614000043768" duration="12000" />
+      <workItem from="1614282122974" duration="9430000" />
     </task>
     <servers />
   </component>
@@ -138,6 +152,11 @@
           <url>file://$PROJECT_DIR$/sample/src/main/java/com/example/uaa/config/WebClientConfig.java</url>
           <line>27</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sample/src/main/java/uaa/config/SecurityConfig.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

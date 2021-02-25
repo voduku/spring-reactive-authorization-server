@@ -4,12 +4,15 @@ import authorization.ReactiveTokenGranter;
 import authorization.client.ReactiveClientDetailsService;
 import authorization.configuration.ReactiveAuthorizationServerConfigurer;
 import authorization.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
+import authorization.configuration.configurers.ReactiveAuthorizationServerSecurityConfigurer;
+import authorization.configuration.configurers.ReactiveAuthorizationServerSecurityConfigurer.SecurityAccess;
 import authorization.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
 import authorization.token.ReactiveTokenServices;
 import authorization.token.ReactiveTokenStore;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
 
 /**
  * @author VuDo
@@ -24,7 +27,22 @@ public class AuthenticationServerConfig implements ReactiveAuthorizationServerCo
   private final ReactiveTokenStore tokenStore;
   private final ReactiveAuthenticationManager authenticationManager;
   private final ReactiveTokenGranter tokenGranter;
+  private final ServerHttpSecurity security;
 
+  @Override
+  public void configure(ReactiveAuthorizationServerSecurityConfigurer configurer) {
+    configurer.checkTokenAccess(SecurityAccess.AUTHENTICATED)
+        .tokenKeyAccess(SecurityAccess.PERMIT_ALL)
+        .security(http-> http.authorizeExchange()
+            .pathMatchers("/", "/swagger-ui/**", "/swagger-resources/**", "/v3/api-docs/**", "/login", "/uaa/partners/{providerId:\\d+}/login").permitAll()
+            .pathMatchers("/**").authenticated()
+            .and()
+            .httpBasic().disable()
+            .csrf().disable()
+            .formLogin().disable()
+            .logout().disable()
+        );
+  }
 
   @Override
   public void configure(ReactiveClientDetailsServiceConfigurer clients) {

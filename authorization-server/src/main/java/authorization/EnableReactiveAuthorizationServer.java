@@ -1,6 +1,7 @@
 package authorization;
 
 import authorization.configuration.ReactiveAuthorizationServerEndpointsConfiguration;
+import authorization.configuration.ReactiveAuthorizationServerSecurityConfiguration;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -15,7 +16,7 @@ import org.springframework.context.annotation.Import;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import({ReactiveAuthorizationServerEndpointsConfiguration.class})
+@Import({ReactiveAuthorizationServerEndpointsConfiguration.class, ReactiveAuthorizationServerSecurityConfiguration.class})
 public @interface EnableReactiveAuthorizationServer {
 
 }

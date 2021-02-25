@@ -1,10 +1,12 @@
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\configuration\configurers\ReactiveClientDetailsServiceConfigurer.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\impl\DefaultReactiveSecurityContextAccessor.java
+D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\configuration\configurers\ReactiveAuthorizationServerSecurityConfigurer.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\token\ReactiveAuthorizationServerTokenServices.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\client\ReactiveClientRegistrationService.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\configuration\ReactiveAuthorizationServerConfigurer.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\token\R2dbcTokenStore.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\client\ReactiveClientDetailsService.java
+D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\configuration\ReactiveAuthorizationServerSecurityConfiguration.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\impl\DefaultReactiveOAuth2RequestFactory.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\configuration\configurers\ReactiveAuthorizationServerEndpointsConfigurer.java
 D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java\authorization\token\ReactiveTokenServices.java

@@ -2,8 +2,6 @@ server:
   port: 8002
 
 spring:
-  main:
-    web-application-type: reactive
   webflux:
     base-path: /uaa
   r2dbc:
