@@ -24,6 +24,3 @@ spring:
 
 setting:
   enable-single-session: false
-logging:
-  level:
-    root: debug
