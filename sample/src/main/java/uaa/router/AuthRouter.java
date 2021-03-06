@@ -2,11 +2,11 @@ package uaa.router;
 
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
+import com.google.common.collect.ImmutableMap;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.web.reactive.function.server.RouterFunction;
@@ -45,8 +45,11 @@ public class AuthRouter extends BaseRouter {
 
   @NonNull
   public Mono<ServerResponse> details(ServerRequest request) {
-    return Mono.justOrEmpty(request.headers().firstHeader(HttpHeaders.AUTHORIZATION))
-        .flatMap(authHandler::details)
+    return getCurrentAuthentication()
+        .map(authentication -> {
+          return ImmutableMap.of("principal", authentication.getPrincipal(),
+              "authorities", authentication.getAuthorities());
+        })
         .flatMap(dto -> ServerResponse.ok().bodyValue(dto))
         .switchIfEmpty(Mono.error(new AuthenticationCredentialsNotFoundException("Couldn't get authentication details")));
   }

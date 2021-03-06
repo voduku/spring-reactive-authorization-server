@@ -31,10 +31,10 @@ public class Auth implements Authentication, CredentialsContainer {
     this.authenticated = false;
   }
 
-  public Auth(Map<String, String> tokenRequestParameters, Set<GrantedAuthority> authorities) {
+  public Auth(Map<String, String> tokenRequestParameters, Set<GrantedAuthority> authorities, boolean authenticated) {
     this.oauth2Request = AuthRequest.fromParams(tokenRequestParameters);
     this.authorities = authorities;
-    this.authenticated = false;
+    this.authenticated = authenticated;
   }
 
   public String getPassword() {

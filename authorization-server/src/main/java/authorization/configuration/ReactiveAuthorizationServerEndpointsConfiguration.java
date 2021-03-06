@@ -18,7 +18,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -27,6 +26,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.lang.NonNull;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
@@ -49,11 +49,15 @@ public class ReactiveAuthorizationServerEndpointsConfiguration {
 
   private final ReactiveAuthorizationServerEndpointsConfigurer endpoints = new ReactiveAuthorizationServerEndpointsConfigurer();
 
-  @Autowired
-  private ReactiveClientDetailsService clientDetailsService;
+  private final ReactiveClientDetailsService clientDetailsService;
 
-  @Autowired
-  private final List<ReactiveAuthorizationServerConfigurer> configurers = Collections.emptyList();
+  private final List<ReactiveAuthorizationServerConfigurer> configurers;
+
+  public ReactiveAuthorizationServerEndpointsConfiguration(
+      @Lazy ReactiveClientDetailsService clientDetailsService, @Lazy List<ReactiveAuthorizationServerConfigurer> configurers) {
+    this.clientDetailsService = clientDetailsService;
+    this.configurers = configurers == null ? Collections.emptyList() : configurers;
+  }
 
   @PostConstruct
   public void init() {
@@ -67,42 +71,29 @@ public class ReactiveAuthorizationServerEndpointsConfiguration {
     endpoints.setClientDetailsService(clientDetailsService);
   }
 
-/* TODO uncomment after reactive endpoint is created
+  /* TODO uncomment after reactive endpoint is created
 
+    @Bean
+    public AuthorizationEndpoint authorizationEndpoint() {
+      AuthorizationEndpoint authorizationEndpoint = new AuthorizationEndpoint();
+      FrameworkEndpointHandlerMapping mapping = getEndpointsConfigurer().getFrameworkEndpointHandlerMapping();
+      authorizationEndpoint.setUserApprovalPage(extractPath(mapping, "/oauth/confirm_access"));
+      authorizationEndpoint.setProviderExceptionHandler(exceptionTranslator());
+      authorizationEndpoint.setErrorPage(extractPath(mapping, "/oauth/error"));
+      authorizationEndpoint.setTokenGranter(tokenGranter());
+      authorizationEndpoint.setClientDetailsService(clientDetailsService);
+      authorizationEndpoint.setAuthorizationCodeServices(authorizationCodeServices());
+      authorizationEndpoint.setOAuth2RequestFactory(oauth2RequestFactory());
+      authorizationEndpoint.setOAuth2RequestValidator(oauth2RequestValidator());
+      authorizationEndpoint.setUserApprovalHandler(userApprovalHandler());
+      authorizationEndpoint.setRedirectResolver(redirectResolver());
+      return authorizationEndpoint;
+    }
+  */
   @Bean
-  public AuthorizationEndpoint authorizationEndpoint() {
-    AuthorizationEndpoint authorizationEndpoint = new AuthorizationEndpoint();
-    FrameworkEndpointHandlerMapping mapping = getEndpointsConfigurer().getFrameworkEndpointHandlerMapping();
-    authorizationEndpoint.setUserApprovalPage(extractPath(mapping, "/oauth/confirm_access"));
-    authorizationEndpoint.setProviderExceptionHandler(exceptionTranslator());
-    authorizationEndpoint.setErrorPage(extractPath(mapping, "/oauth/error"));
-    authorizationEndpoint.setTokenGranter(tokenGranter());
-    authorizationEndpoint.setClientDetailsService(clientDetailsService);
-    authorizationEndpoint.setAuthorizationCodeServices(authorizationCodeServices());
-    authorizationEndpoint.setOAuth2RequestFactory(oauth2RequestFactory());
-    authorizationEndpoint.setOAuth2RequestValidator(oauth2RequestValidator());
-    authorizationEndpoint.setUserApprovalHandler(userApprovalHandler());
-    authorizationEndpoint.setRedirectResolver(redirectResolver());
-    return authorizationEndpoint;
+  public RouterFunction<ServerResponse> tokenRoute(ReactiveTokenEndpoint tokenEndpoint) {
+    return route().POST("/oauth/token", tokenEndpoint::postAccessToken).build();
   }
-*/
-
-//  @Bean
-//  ConnectionFactory postgresConnectionFactory(
-//      @Value("${spring.r2dbc.url}") String host,
-//      @Value("${spring.r2dbc.port}") Integer port,
-//      @Value("${spring.r2dbc.database}") String database,
-//      @Value("${spring.r2dbc.username}") String username,
-//      @Value("${spring.r2dbc.password}") String password
-//  ) {
-//    return new PostgresqlConnectionFactory(PostgresqlConnectionConfiguration.builder()
-//        .host(host)
-//        .port(port)
-//        .database(database)
-//        .username(username)
-//        .password(password)
-//        .build());
-//  }
 
   @Bean
   public ReactiveTokenEndpoint tokenEndpoint() {
@@ -114,10 +105,6 @@ public class ReactiveAuthorizationServerEndpointsConfiguration {
     return tokenEndpoint;
   }
 
-  @Bean
-  public RouterFunction<ServerResponse> tokenRoute(ReactiveTokenEndpoint tokenEndpoint) {
-    return route().POST("/oauth/token", tokenEndpoint::postAccessToken).build();
-  }
 
   /* TODO uncomment after reactive endpoint is created
 

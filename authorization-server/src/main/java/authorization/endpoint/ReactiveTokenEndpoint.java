@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Map;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.SneakyThrows;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
@@ -25,7 +26,6 @@ import org.springframework.security.oauth2.provider.TokenRequest;
 import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestValidator;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
@@ -47,7 +47,6 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
         .flatMap(formData -> postAccessToken(null, formData));
   }
 
-
   public Mono<ServerResponse> postAccessToken(Principal principal, Map<String, String> parameters) {
     return Mono.just(new RequestContainer(principal, parameters))
         .doOnNext(this::getClientId)
@@ -58,7 +57,10 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
         .doOnNext(this::validateTokenRequest)
         .flatMap(this::grant)
         .doOnNext(this::validateToken)
-        .flatMap(this::getResponse);
+        .flatMap(this::getResponse)
+        .onErrorResume(OAuth2Exception.class, this::handleException)
+        .onErrorResume(ClientRegistrationException.class, this::handleClientRegistrationException)
+        .onErrorResume(Exception.class, this::handleException);
   }
 
   protected void getClientId(RequestContainer container) {
@@ -141,28 +143,34 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
     }
   }
 
-  @ExceptionHandler(Exception.class)
-  public Mono<ResponseEntity<OAuth2Exception>> handleException(Exception e) throws Exception {
+  @SneakyThrows
+  public Mono<ServerResponse> handleException(Exception e) {
     if (logger.isErrorEnabled()) {
       logger.error("Handling error: " + e.getClass().getSimpleName() + ", " + e.getMessage(), e);
     }
-    return Mono.just(getExceptionTranslator().translate(e));
+    return renderErrorResponseEntity(getExceptionTranslator().translate(e));
   }
 
-  @ExceptionHandler(ClientRegistrationException.class)
-  public Mono<ResponseEntity<OAuth2Exception>> handleClientRegistrationException(Exception e) throws Exception {
+  @SneakyThrows
+  public Mono<ServerResponse> handleClientRegistrationException(Exception e) {
     if (logger.isWarnEnabled()) {
       logger.warn("Handling error: " + e.getClass().getSimpleName() + ", " + e.getMessage());
     }
-    return Mono.just(getExceptionTranslator().translate(new BadClientCredentialsException()));
+    return renderErrorResponseEntity(getExceptionTranslator().translate(new BadClientCredentialsException()));
   }
 
-  @ExceptionHandler(OAuth2Exception.class)
-  public Mono<ResponseEntity<OAuth2Exception>> handleException(OAuth2Exception e) throws Exception {
+  @SneakyThrows
+  public Mono<ServerResponse> handleException(OAuth2Exception e) {
     if (logger.isWarnEnabled()) {
       logger.warn("Handling error: " + e.getClass().getSimpleName() + ", " + e.getMessage());
     }
-    return Mono.just(getExceptionTranslator().translate(e));
+    return renderErrorResponseEntity(getExceptionTranslator().translate(e));
+  }
+
+  private <T> Mono<ServerResponse> renderErrorResponseEntity(ResponseEntity<T> entity) {
+    ServerResponse.BodyBuilder response = ServerResponse.status(entity.getStatusCodeValue())
+        .contentType(MediaType.APPLICATION_JSON);
+    return entity.getBody() == null ? response.build() : response.bodyValue(entity.getBody());
   }
 
 //  private Mono<ServerResponse> getResponse(OAuth2AccessToken accessToken) {

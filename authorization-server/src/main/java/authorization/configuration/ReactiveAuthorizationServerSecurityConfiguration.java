@@ -1,8 +1,11 @@
 package authorization.configuration;
 
+import authorization.client.ReactiveClientDetailsService;
 import authorization.configuration.configurers.ReactiveAuthorizationServerSecurityConfigurer;
 import authorization.configuration.configurers.ReactiveAuthorizationServerSecurityConfigurer.SecurityAccess;
+import authorization.context.R2dbcSecurityContextRepository;
 import authorization.endpoint.FrameworkEndpointReactiveHandlerMapping;
+import authorization.token.ReactiveTokenStore;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,30 +31,31 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 public class ReactiveAuthorizationServerSecurityConfiguration {
 
   private final List<ReactiveAuthorizationServerConfigurer> configurers;
-  private final ServerHttpSecurity security;
+  private ServerHttpSecurity security;
 
   @Autowired
-  public ReactiveAuthorizationServerSecurityConfiguration(List<ReactiveAuthorizationServerConfigurer> configurers,
-      ServerHttpSecurity security) {
+  public ReactiveAuthorizationServerSecurityConfiguration(List<ReactiveAuthorizationServerConfigurer> configurers, ServerHttpSecurity security) {
     this.configurers = configurers != null ? configurers : Collections.emptyList();
     this.security = security;
   }
 
   @Bean
-  public SecurityWebFilterChain authorizationServerSecurityFilterChain(ReactiveAuthorizationServerEndpointsConfiguration endpoints) {
+  public SecurityWebFilterChain authorizationServerSecurityFilterChain(ReactiveAuthorizationServerEndpointsConfiguration endpoints,
+      ReactiveTokenStore tokenStore, ReactiveClientDetailsService clientDetailsService) {
     ReactiveAuthorizationServerSecurityConfigurer configurer = new ReactiveAuthorizationServerSecurityConfigurer();
     FrameworkEndpointReactiveHandlerMapping handlerMapping = endpoints.oauth2EndpointHandlerMapping();
-    configure(configurer);
+
     String tokenEndpointPath = handlerMapping.getServerPath("/oauth/token");
     String tokenKeyPath = handlerMapping.getServerPath("/oauth/token_key");
     String checkTokenPath = handlerMapping.getServerPath("/oauth/check_token");
-
-    return security.authorizeExchange(exchange -> {
+    security = security.authorizeExchange(exchange -> {
       exchange.pathMatchers(tokenEndpointPath).authenticated();
       setPathMatcher(exchange, tokenKeyPath, configurer.getTokenKeyAccess());
       setPathMatcher(exchange, checkTokenPath, configurer.getCheckTokenAccess());
     })
-        .build();
+        .securityContextRepository(new R2dbcSecurityContextRepository(tokenStore, clientDetailsService));
+    configure(configurer);
+    return security.build();
   }
 
   private void setPathMatcher(AuthorizeExchangeSpec exchange, String path, SecurityAccess access) {

@@ -41,11 +41,6 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
     Auth auth = (Auth) authentication;
     AuthRequest authRequest = auth.getCredentials();
     return loadUserProfile(auth.getCredentials())
-        .doOnNext(response -> {
-          if (response == null || response.getUser() == null) {
-            throw new OAuth2Exception(resourceBundle.getMessage("err.invalid.user"));
-          }
-        })
         .doOnNext(response -> verifyAuthentication(auth.getCredentials(), response))
         .flatMap(response -> createPrincipal(authRequest.getTenantId(), response))
         .flatMap(principal -> {
@@ -63,7 +58,12 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
     return Mono.just(new AuthUserRequest(auth2Request))
         .flatMap(a -> setGrantType(a, auth2Request))
         .doOnNext(a -> log.info("userName= {}, tenantId ={}, authorization.client={} login", a.getUsername(), a.getTenantId(), a.getClient()))
-        .flatMap(profileClient::loadAuthUserProfile);
+        .flatMap(profileClient::loadAuthUserProfile)
+        .doOnNext(response -> {
+          if (response == null || response.getUser() == null) {
+            throw new OAuth2Exception(resourceBundle.getMessage("err.invalid.user"));
+          }
+        });
   }
 
   private Mono<AuthUserRequest> setGrantType(AuthUserRequest userRequest, AuthRequest auth2Request) {

@@ -26,6 +26,30 @@ public class ReactiveClientDetailsServiceBuilder<B extends ReactiveClientDetails
 
   private final List<ClientBuilder> clientBuilders = new ArrayList<>();
 
+//  @Bean
+//  @Primary
+//  @ConditionalOnBean(R2dbcClientDetailsServiceBuilder.class)
+//  ConnectionFactory connectionFactory(
+//      @Value("${spring.r2dbc.url}") String url,
+//      @Value("${spring.r2dbc.username}") String username,
+//      @Value("${spring.r2dbc.password}") String password
+//  ) throws URISyntaxException {
+//    UriComponents uri = UriComponentsBuilder.fromUriString(url).build();
+//    String host = uri.getHost();
+//    int port = uri.getPort();
+//    String database = uri.getPathSegments().get(0);
+//    if (host == null) {
+//      throw new URISyntaxException("null", "url can't be: ");
+//    }
+//    return new PostgresqlConnectionFactory(PostgresqlConnectionConfiguration.builder()
+//        .host(host)
+//        .port(port)
+//        .database(database)
+//        .username(username)
+//        .password(password)
+//        .build());
+//  }
+
   public R2dbcClientDetailsServiceBuilder r2dbc() {
     return new R2dbcClientDetailsServiceBuilder();
   }
@@ -68,24 +92,15 @@ public class ReactiveClientDetailsServiceBuilder<B extends ReactiveClientDetails
     private final Collection<String> authorizedGrantTypes = new LinkedHashSet<>();
 
     private final Collection<String> authorities = new LinkedHashSet<>();
-
-    private Integer accessTokenValiditySeconds;
-
-    private Integer refreshTokenValiditySeconds;
-
     private final Collection<String> scopes = new LinkedHashSet<>();
-
     private final Collection<String> autoApproveScopes = new HashSet<>();
-
-    private String secret;
-
     private final Set<String> registeredRedirectUris = new HashSet<>();
-
     private final Set<String> resourceIds = new HashSet<>();
-
-    private boolean autoApprove;
-
     private final Map<String, Object> additionalInformation = new LinkedHashMap<>();
+    private Integer accessTokenValiditySeconds;
+    private Integer refreshTokenValiditySeconds;
+    private String secret;
+    private boolean autoApprove;
 
     private ClientBuilder(String clientId) {
       this.clientId = clientId;

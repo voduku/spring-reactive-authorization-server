@@ -5,18 +5,107 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14578b7a-d9ee-4a69-abc1-2ff900dd194d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerSecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/configurers/ReactiveAuthorizationServerSecurityConfigurer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/context/R2dbcSecurityContextRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/error/GlobalErrorAttributes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/error/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_nimbus_jose_jwt_9_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_oauth2_oidc_sdk_8_23_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_58_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_1_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_brave_1_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_r2dbc_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_oauth2_client_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_oauth2_resource_server_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_4_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_r2dbc_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_relational_2_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_client_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_core_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_jose_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_resource_server_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_r2dbc_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/EnableReactiveAuthorizationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/EnableReactiveAuthorizationServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization-server/target/authorization-server-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/authorization-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/authorization-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/client/R2dbcClientDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/client/R2dbcClientDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveAuthorizationServerSecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveClientDetailsServiceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/ReactiveClientDetailsServiceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/endpoint/AbstractReactiveEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/endpoint/AbstractReactiveEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/endpoint/ReactiveTokenEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/src/main/java/authorization/endpoint/ReactiveTokenEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/client/R2dbcClientDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/client/R2dbcClientDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration$AuthorizationServerTokenServicesFactoryBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration$AuthorizationServerTokenServicesFactoryBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration$TokenKeyEndpointRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration$TokenKeyEndpointRegistrar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveAuthorizationServerEndpointsConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveClientDetailsServiceConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/ReactiveClientDetailsServiceConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder$ClientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder$ClientBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/endpoint/AbstractReactiveEndpoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/endpoint/AbstractReactiveEndpoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/endpoint/ReactiveTokenEndpoint$RequestContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/endpoint/ReactiveTokenEndpoint$RequestContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-server/target/classes/authorization/endpoint/ReactiveTokenEndpoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-server/target/classes/authorization/endpoint/ReactiveTokenEndpoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/sample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/sample.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/UaaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/UaaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationServiceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/AuthenticationServiceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/TokenGranter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/TokenGranter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/model/oauth/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/model/oauth/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/src/main/java/uaa/router/AuthRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/java/uaa/router/AuthRouter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationServerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/target/sample-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/target/sample-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationServiceConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/config/AuthenticationServiceConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/config/TokenGranter$GrantContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/config/TokenGranter$GrantContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/model/oauth/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/model/oauth/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/target/classes/uaa/router/AuthRouter.class" beforeDir="false" afterPath="$PROJECT_DIR$/sample/target/classes/uaa/router/AuthRouter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +159,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\git\cloud-webflux\spring-reactive-authorization-server\sample" />
+      <recent name="D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server" />
       <recent name="D:\git\cloud-webflux\spring-reactive-authorization-server\authorization-server\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -129,7 +220,11 @@
       <workItem from="1613851798052" duration="3418000" />
       <workItem from="1613863893917" duration="3324000" />
       <workItem from="1614000043768" duration="12000" />
-      <workItem from="1614282122974" duration="9430000" />
+      <workItem from="1614282122974" duration="10871000" />
+      <workItem from="1614366578106" duration="1196000" />
+      <workItem from="1614532270192" duration="595000" />
+      <workItem from="1614561510342" duration="6000" />
+      <workItem from="1614794253762" duration="30626000" />
     </task>
     <servers />
   </component>
@@ -154,11 +249,16 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sample/src/main/java/uaa/config/SecurityConfig.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/authorization-server/src/main/java/authorization/configuration/builder/ReactiveClientDetailsServiceBuilder.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((java.util.ArrayList)((ServerDefaultCodecsImpl)((DefaultServerCodecConfigurer)serverCodecConfigurer).defaultCodecs).typedReaders).get(1)" custom="org.springframework.http.codec.support.ServerDefaultCodecsImpl,java.util.ArrayList,org.springframework.http.codec.support.DefaultServerCodecConfigurer" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -9,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
+import org.springframework.util.Assert;
 
 /**
  * @author VuDo
@@ -29,8 +30,8 @@ public class AbstractReactiveEndpoint implements InitializingBean {
   private ReactiveOAuth2RequestFactory defaultOAuth2RequestFactory;
 
   public void afterPropertiesSet() {
-//    Assert.state(tokenGranter != null, "TokenGranter must be provided");
-//    Assert.state(clientDetailsService != null, "ClientDetailsService must be provided");
+    Assert.state(tokenGranter != null, "TokenGranter must be provided");
+    Assert.state(clientDetailsService != null, "ClientDetailsService must be provided");
     defaultOAuth2RequestFactory = new DefaultReactiveOAuth2RequestFactory(clientDetailsService);
     if (oAuth2RequestFactory == null) {
       oAuth2RequestFactory = defaultOAuth2RequestFactory;

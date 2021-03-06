@@ -5,9 +5,9 @@ spring:
   webflux:
     base-path: /uaa
   r2dbc:
-    username: inspira
-    password: inspira@123
-    url: postgresql://dev.database.inspirahub.id:5432/uaa
+    username: postgres
+    password: 1234567
+    url: r2dbc:postgresql://localhost:5432/uaa
   security:
     oauth2:
       client:
@@ -24,7 +24,6 @@ spring:
 
 setting:
   enable-single-session: false
-
 logging:
-  file:
-    name: /usr/app/logs/uaa.log
+  level:
+    root: debug

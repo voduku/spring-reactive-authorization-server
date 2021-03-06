@@ -176,7 +176,7 @@ public class R2dbcClientDetailsService implements ReactiveClientDetailsService, 
   private ClientDetails mapRow(Row row) {
     BaseClientDetails details = new BaseClientDetails((String) row.get(0), (String) row.get(2), (String) row.get(3),
         (String) row.get(4), (String) row.get(6), (String) row.get(5));
-    details.setClientSecret((String) row.get(2));
+    details.setClientSecret((String) row.get(1));
     if (row.get(8) != null) {
       details.setAccessTokenValiditySeconds((Integer) row.get(7));
     }

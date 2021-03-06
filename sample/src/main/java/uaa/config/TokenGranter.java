@@ -144,7 +144,7 @@ public class TokenGranter implements ReactiveTokenGranter {
       this.grantType = grantType;
       this.clientDetails = clientDetails;
       this.authRequest = tokenRequest.createOAuth2Request(clientDetails);
-      this.authentication = new Auth(tokenRequest.getRequestParameters(), getClientAuthorities(clientDetails));
+      this.authentication = new Auth(tokenRequest.getRequestParameters(), getClientAuthorities(clientDetails), grantType.equals(CLIENT_CREDENTIALS));
     }
 
     public Set<String> getAuthorizedGrantTypes() {
