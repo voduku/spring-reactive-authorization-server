@@ -31,20 +31,18 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 public class ReactiveAuthorizationServerSecurityConfiguration {
 
   private final List<ReactiveAuthorizationServerConfigurer> configurers;
-  private ServerHttpSecurity security;
 
   @Autowired
-  public ReactiveAuthorizationServerSecurityConfiguration(List<ReactiveAuthorizationServerConfigurer> configurers, ServerHttpSecurity security) {
+  public ReactiveAuthorizationServerSecurityConfiguration(List<ReactiveAuthorizationServerConfigurer> configurers) {
     this.configurers = configurers != null ? configurers : Collections.emptyList();
-    this.security = security;
   }
 
   @Bean
   public SecurityWebFilterChain authorizationServerSecurityFilterChain(ReactiveAuthorizationServerEndpointsConfiguration endpoints,
-      ReactiveTokenStore tokenStore, ReactiveClientDetailsService clientDetailsService) {
+      ReactiveTokenStore tokenStore, ReactiveClientDetailsService clientDetailsService, ServerHttpSecurity security) {
     ReactiveAuthorizationServerSecurityConfigurer configurer = new ReactiveAuthorizationServerSecurityConfigurer();
     FrameworkEndpointReactiveHandlerMapping handlerMapping = endpoints.oauth2EndpointHandlerMapping();
-
+    configure(configurer);
     String tokenEndpointPath = handlerMapping.getServerPath("/oauth/token");
     String tokenKeyPath = handlerMapping.getServerPath("/oauth/token_key");
     String checkTokenPath = handlerMapping.getServerPath("/oauth/check_token");
@@ -54,7 +52,7 @@ public class ReactiveAuthorizationServerSecurityConfiguration {
       setPathMatcher(exchange, checkTokenPath, configurer.getCheckTokenAccess());
     })
         .securityContextRepository(new R2dbcSecurityContextRepository(tokenStore, clientDetailsService));
-    configure(configurer);
+    configureServerHttpSecurity(security);
     return security.build();
   }
 
@@ -79,9 +77,14 @@ public class ReactiveAuthorizationServerSecurityConfiguration {
   }
 
   protected void configure(ReactiveAuthorizationServerSecurityConfigurer oauthServer) {
-    oauthServer.setSecurity(security);
     for (ReactiveAuthorizationServerConfigurer configurer : configurers) {
       configurer.configure(oauthServer);
+    }
+  }
+
+  protected void configureServerHttpSecurity(ServerHttpSecurity security) {
+    for (ReactiveAuthorizationServerConfigurer configurer : configurers) {
+      configurer.configure(security);
     }
   }
 }

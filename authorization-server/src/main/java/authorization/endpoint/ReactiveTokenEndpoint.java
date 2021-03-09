@@ -4,10 +4,10 @@ import java.security.Principal;
 import java.util.Collections;
 import java.util.Map;
 import lombok.Data;
-import lombok.NonNull;
 import lombok.SneakyThrows;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -38,7 +38,7 @@ import reactor.core.publisher.Mono;
 public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
 
   private static final String CLIENT_CREDENTIALS = "client_credentials";
-  private final OAuth2RequestValidator oAuth2RequestValidator = new DefaultOAuth2RequestValidator();
+  private final OAuth2RequestValidator validator = new DefaultOAuth2RequestValidator();
 
   @NonNull
   public Mono<ServerResponse> postAccessToken(ServerRequest request) {
@@ -107,7 +107,7 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
     ClientDetails authenticatedClient = container.clientDetails;
     TokenRequest tokenRequest = container.tokenRequest;
     if (authenticatedClient != null) {
-      oAuth2RequestValidator.validateScope(tokenRequest, authenticatedClient);
+      validator.validateScope(tokenRequest, authenticatedClient);
     }
   }
 
@@ -172,14 +172,6 @@ public class ReactiveTokenEndpoint extends AbstractReactiveEndpoint {
         .contentType(MediaType.APPLICATION_JSON);
     return entity.getBody() == null ? response.build() : response.bodyValue(entity.getBody());
   }
-
-//  private Mono<ServerResponse> getResponse(OAuth2AccessToken accessToken) {
-//    return ServerResponse.ok()
-//        .contentType(MediaType.APPLICATION_JSON)
-//        .header("Cache-Control", "no-store")
-//        .header("Pragma", "no-cache")
-//        .bodyValue(accessToken);
-//  }
 
   private Mono<ServerResponse> getResponse(OAuth2AccessToken accessToken) {
     return ServerResponse.ok()

@@ -1,8 +1,6 @@
 package authorization.configuration.configurers;
 
 import lombok.Getter;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -17,7 +15,6 @@ public class ReactiveAuthorizationServerSecurityConfigurer {
 
   private SecurityAccess checkTokenAccess = SecurityAccess.DENY_ALL;
 
-  private ServerHttpSecurity security;
 
   public ReactiveAuthorizationServerSecurityConfigurer passwordEncoder(PasswordEncoder passwordEncoder) {
     this.passwordEncoder = passwordEncoder;
@@ -32,15 +29,6 @@ public class ReactiveAuthorizationServerSecurityConfigurer {
   public ReactiveAuthorizationServerSecurityConfigurer checkTokenAccess(SecurityAccess checkTokenAccess) {
     this.checkTokenAccess = checkTokenAccess;
     return this;
-  }
-
-  public ReactiveAuthorizationServerSecurityConfigurer security(Customizer<ServerHttpSecurity> customizer) {
-    customizer.customize(security);
-    return this;
-  }
-
-  public void setSecurity(ServerHttpSecurity security) {
-    this.security = security;
   }
 
   public SecurityAccess getTokenKeyAccess() {

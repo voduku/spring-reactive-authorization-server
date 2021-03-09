@@ -103,6 +103,9 @@ public class ReactiveAuthorizationServerEndpointsConfigurer {
     return ProxyCreator.getProxy(ReactiveAuthorizationServerTokenServices.class, this::tokenServices);
   }
 
+  public ReactiveResourceServerTokenServices getResourceTokenServices() {
+    return resourceTokenServices();
+  }
 
   public AccessTokenConverter getAccessTokenConverter() {
     return accessTokenConverter();

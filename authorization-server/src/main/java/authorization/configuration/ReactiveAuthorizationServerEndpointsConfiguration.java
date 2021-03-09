@@ -8,6 +8,7 @@ import authorization.client.ReactiveClientDetailsService;
 import authorization.configuration.ReactiveAuthorizationServerEndpointsConfiguration.TokenKeyEndpointRegistrar;
 import authorization.configuration.configurers.ReactiveAuthorizationServerEndpointsConfigurer;
 import authorization.endpoint.FrameworkEndpointReactiveHandlerMapping;
+import authorization.endpoint.ReactiveCheckTokenEndpoint;
 import authorization.endpoint.ReactiveTokenEndpoint;
 import authorization.token.ReactiveAuthorizationServerTokenServices;
 import authorization.token.ReactiveConsumerTokenServices;
@@ -36,6 +37,7 @@ import org.springframework.security.oauth2.provider.endpoint.TokenKeyEndpoint;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
@@ -91,8 +93,11 @@ public class ReactiveAuthorizationServerEndpointsConfiguration {
     }
   */
   @Bean
-  public RouterFunction<ServerResponse> tokenRoute(ReactiveTokenEndpoint tokenEndpoint) {
-    return route().POST("/oauth/token", tokenEndpoint::postAccessToken).build();
+  public RouterFunction<ServerResponse> tokenRoute(ReactiveTokenEndpoint tokenEndpoint, ReactiveCheckTokenEndpoint checkTokenEndpoint) {
+    return route()
+        .POST("/oauth/token", tokenEndpoint::postAccessToken)
+        .GET("/oauth/check_token", RequestPredicates.queryParam("token", t -> true), checkTokenEndpoint::checkToken)
+        .build();
   }
 
   @Bean
@@ -106,28 +111,27 @@ public class ReactiveAuthorizationServerEndpointsConfiguration {
   }
 
 
+  @Bean
+  public ReactiveCheckTokenEndpoint checkTokenEndpoint() {
+    ReactiveCheckTokenEndpoint endpoint = new ReactiveCheckTokenEndpoint(getEndpointsConfigurer().getResourceTokenServices());
+    endpoint.setAccessTokenConverter(getEndpointsConfigurer().getAccessTokenConverter());
+    endpoint.setExceptionTranslator(exceptionTranslator());
+    return endpoint;
+  }
+
   /* TODO uncomment after reactive endpoint is created
 
-    @Bean
-    public CheckTokenEndpoint checkTokenEndpoint() {
-      CheckTokenEndpoint endpoint = new CheckTokenEndpoint(getEndpointsConfigurer().getResourceServerTokenServices());
-      endpoint.setAccessTokenConverter(getEndpointsConfigurer().getAccessTokenConverter());
-      endpoint.setExceptionTranslator(exceptionTranslator());
-      return endpoint;
-    }
+      @Bean
+      public WhitelabelApprovalEndpoint whitelabelApprovalEndpoint() {
+        return new WhitelabelApprovalEndpoint();
+      }
 
+      @Bean
+      public WhitelabelErrorEndpoint whitelabelErrorEndpoint() {
+        return new WhitelabelErrorEndpoint();
+      }
 
-    @Bean
-    public WhitelabelApprovalEndpoint whitelabelApprovalEndpoint() {
-      return new WhitelabelApprovalEndpoint();
-    }
-
-    @Bean
-    public WhitelabelErrorEndpoint whitelabelErrorEndpoint() {
-      return new WhitelabelErrorEndpoint();
-    }
-
-  */
+    */
   @Bean
   public FrameworkEndpointReactiveHandlerMapping oauth2EndpointHandlerMapping() {
     return getEndpointsConfigurer().getFrameworkEndpointHandlerMapping();

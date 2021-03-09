@@ -4,6 +4,7 @@ import authorization.configuration.configurers.ReactiveAuthorizationServerEndpoi
 import authorization.configuration.configurers.ReactiveAuthorizationServerSecurityConfigurer;
 import authorization.configuration.configurers.ReactiveClientDetailsServiceConfigurer;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 
 /**
@@ -21,6 +22,13 @@ public interface ReactiveAuthorizationServerConfigurer {
    * @param security a fluent configurer for security features
    */
   void configure(ReactiveAuthorizationServerSecurityConfigurer security);
+
+  /**
+   * Configure resource matching due to limitation only 1 ServerHttpSecurity bean can will be picked up.
+   *
+   * @param security a fluent configurer for security features
+   */
+  void configure(ServerHttpSecurity security);
 
   /**
    * Configure the {@link ClientDetailsService}, e.g. declaring individual clients and their properties. Note that password grant is not enabled (even if some

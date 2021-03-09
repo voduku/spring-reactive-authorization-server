@@ -12,6 +12,7 @@ import authorization.token.ReactiveTokenStore;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
 
 /**
  * @author VuDo
@@ -29,17 +30,20 @@ public class AuthenticationServerConfig implements ReactiveAuthorizationServerCo
 
   @Override
   public void configure(ReactiveAuthorizationServerSecurityConfigurer configurer) {
-    configurer.checkTokenAccess(SecurityAccess.AUTHENTICATED)
-        .tokenKeyAccess(SecurityAccess.PERMIT_ALL)
-        .security(http -> http.authorizeExchange()
-            .pathMatchers("/", "/swagger-ui/**", "/swagger-resources/**", "/v3/api-docs/**", "/login", "/partners/{providerId:\\d+}/login").permitAll()
-            .pathMatchers("/**").authenticated()
-            .and()
-            .httpBasic().disable()
-            .csrf().disable()
-            .formLogin().disable()
-            .logout().disable()
-        );
+    configurer.checkTokenAccess(SecurityAccess.PERMIT_ALL)
+        .tokenKeyAccess(SecurityAccess.PERMIT_ALL);
+  }
+
+  @Override
+  public void configure(ServerHttpSecurity security) {
+    security.authorizeExchange()
+        .pathMatchers("/", "/swagger-ui/**", "/swagger-resources/**", "/v3/api-docs/**", "/login", "/partners/{providerId:\\d+}/login").permitAll()
+        .pathMatchers("/**").permitAll()
+        .and()
+        .httpBasic().disable()
+        .csrf().disable()
+        .formLogin().disable()
+        .logout().disable();
   }
 
   @Override

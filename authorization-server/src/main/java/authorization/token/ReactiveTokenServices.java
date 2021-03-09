@@ -17,6 +17,7 @@ import org.springframework.security.oauth2.common.OAuth2RefreshToken;
 import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
 import org.springframework.security.oauth2.provider.ClientDetails;
+import org.springframework.security.oauth2.provider.ClientRegistrationException;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.TokenRequest;
 import org.springframework.transaction.annotation.Transactional;
@@ -127,7 +128,26 @@ public class ReactiveTokenServices implements ReactiveAuthorizationServerTokenSe
   }
 
   public Mono<OAuth2Authentication> loadAuthentication(String accessToken) throws AuthenticationException, InvalidTokenException {
-    return null;
+    return Mono.just(accessToken)
+        .flatMap(tokenStore::readAccessToken)
+        .switchIfEmpty(Mono.error(new InvalidTokenException("Invalid access token: " + accessToken)))
+        .doOnNext(token -> {
+          if (token.isExpired()) {
+            tokenStore.removeAccessToken(token);
+            throw new InvalidTokenException("Access token expired: " + accessToken);
+          }
+        }).flatMap(tokenStore::readAuthentication)
+        .switchIfEmpty(Mono.error(new InvalidTokenException("Invalid access token: " + accessToken)))
+        .doOnNext(authentication -> {
+          if (clientDetailsService != null) {
+            String clientId = authentication.getOAuth2Request().getClientId();
+            try {
+              clientDetailsService.loadClientByClientId(clientId);
+            } catch (ClientRegistrationException e) {
+              throw new InvalidTokenException("Client not valid: " + clientId, e);
+            }
+          }
+        });
   }
 
   public Mono<OAuth2AccessToken> readAccessToken(String accessToken) {
